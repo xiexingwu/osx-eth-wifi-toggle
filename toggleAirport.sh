@@ -34,7 +34,7 @@ eth_status="Off"
 
 # Grab the names of the adapters. We assume here that any ethernet connection name ends in "Ethernet"
 # eth_names=`networksetup -listnetworkserviceorder | sed -En 's|^\(Hardware Port: .*Ethernet, Device: (en.)\)$|\1|p'`
-eth_names=`networksetup -listnetworkserviceorder | sed -nE '/Ethernet|Dock/ s|.*Device: (en[0-9]+).*|\1|p'`
+eth_names=`networksetup -listnetworkserviceorder | sed -nE '/Ethernet|Dock|USB.*LAN/ s|.*Device: (en[0-9]+).*|\1|p'`
 air_name=`networksetup -listnetworkserviceorder | sed -En 's/^\(Hardware Port: (Wi-Fi|AirPort), Device: (en.)\)$/\2/p'`
 
 # Determine previous ethernet status
